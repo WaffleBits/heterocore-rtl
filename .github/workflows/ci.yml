@@ -19,7 +19,12 @@ jobs:
       - run: make test
       - run: make lint
       - run: make schedule
+      - run: >
+          python tools/generate_schedule.py
+          examples/tiny_char_transformer.plan.json
+          -o build/tiny_char_transformer_schedule.hex
+          --manifest build/tiny_char_transformer_schedule.json
       - uses: actions/upload-artifact@v7
         with:
           name: generated-schedule
-          path: build/schedule.*
+          path: build/*schedule.*

@@ -9,6 +9,7 @@ flowchart LR
     S --> D[Digital compute interface]
     M[DMA and SRAM controllers] --> A
     M --> D
+    D --> Q[INT8 matrix engine]
     S --> C[Performance counters]
 ```
 
@@ -33,7 +34,11 @@ The testbench verifies analog and digital command dispatch, ready/valid
 behavior, completion handling, tile metadata, and performance counters.
 GitHub Actions runs Icarus Verilog simulation and Verilator lint.
 
+`int8_matmul_engine` is a sequential, synthesizable reference datapath. It
+stores signed INT8 activations and weights, performs one multiply-accumulate
+per cycle, writes signed INT32 outputs, and exposes exact MAC/cycle counters.
+The initial verification fixture computes a 2x4 by 4x2 matrix product.
+
 The OpenLane configuration targets a 10 ns clock and includes only the
 controller top. No checked-in timing, power, area, or GDSII claim is made until
 the flow has run and its reports are published.
-

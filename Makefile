@@ -1,4 +1,4 @@
-RTL := rtl/schedule_controller.sv rtl/analog_array_if.sv rtl/dma_engine.sv rtl/sram_controller.sv rtl/quantize_unit.sv rtl/heterocore_top.sv
+RTL := rtl/schedule_controller.sv rtl/analog_array_if.sv rtl/dma_engine.sv rtl/sram_controller.sv rtl/quantize_unit.sv rtl/int8_matmul_engine.sv rtl/heterocore_top.sv
 PYTHON ?= python3
 
 .PHONY: test lint schedule clean
@@ -7,6 +7,8 @@ test:
 	mkdir -p build
 	iverilog -g2012 -s heterocore_top_tb -o build/heterocore_top_tb $(RTL) tb/heterocore_top_tb.sv
 	vvp build/heterocore_top_tb
+	iverilog -g2012 -s int8_matmul_engine_tb -o build/int8_matmul_engine_tb rtl/int8_matmul_engine.sv tb/int8_matmul_engine_tb.sv
+	vvp build/int8_matmul_engine_tb
 	$(PYTHON) -m unittest discover -s tests
 
 lint:
