@@ -1,0 +1,26 @@
+{
+  "schema_version": "heterocore.execution_plan.v1",
+  "model": {"name": "rtl-demo", "operator_count": 3},
+  "operators": [
+    {
+      "id": "q_projection",
+      "type": "linear",
+      "target": "analog",
+      "dimensions": {"m": 128, "k": 256, "n": 256}
+    },
+    {
+      "id": "softmax",
+      "type": "softmax",
+      "target": "digital",
+      "dimensions": {"m": 128, "k": 128, "n": 128}
+    },
+    {
+      "id": "output_projection",
+      "type": "linear",
+      "target": "analog",
+      "dimensions": {"m": 128, "k": 256, "n": 256}
+    }
+  ],
+  "claim_scope": {"classification": "analytical projection", "measured_hardware": false}
+}
+

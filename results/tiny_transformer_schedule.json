@@ -1,0 +1,46 @@
+[
+  {
+    "id": "token_embedding",
+    "word": 65794
+  },
+  {
+    "id": "q_projection",
+    "word": 2281767426
+  },
+  {
+    "id": "k_projection",
+    "word": 2281767426
+  },
+  {
+    "id": "v_projection",
+    "word": 2281767426
+  },
+  {
+    "id": "attention_scores",
+    "word": 268501505
+  },
+  {
+    "id": "softmax",
+    "word": 402718977
+  },
+  {
+    "id": "output_projection",
+    "word": 2281767426
+  },
+  {
+    "id": "layer_norm",
+    "word": 536936962
+  },
+  {
+    "id": "ffn_up",
+    "word": 2281767432
+  },
+  {
+    "id": "gelu",
+    "word": 671156232
+  },
+  {
+    "id": "ffn_down",
+    "word": 2281768962
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "DESIGN_NAME": "heterocore_top",
+  "VERILOG_FILES": [
+    "dir::../rtl/schedule_controller.sv",
+    "dir::../rtl/analog_array_if.sv",
+    "dir::../rtl/heterocore_top.sv"
+  ],
+  "CLOCK_PORT": "clk",
+  "CLOCK_PERIOD": 10.0
+}
+
