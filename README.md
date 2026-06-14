@@ -16,6 +16,9 @@ HeteroCore mixed analog-digital inference architecture.
 - Inferred single-port SRAM controller.
 - Saturating quantization unit.
 - Signed INT8 matrix engine with writable activation/weight memories and INT32 accumulation.
+- Signed INT4 packed-weight dot-product engine with exact cycle/byte counters.
+- Quantized KV block scorer with deterministic streaming top-k selection.
+- Attention value accumulator for selected tokens.
 - Cycle and operation performance counters.
 - Compiler-plan to 32-bit schedule generator.
 - OpenLane 2 configuration for the controller top.
@@ -38,6 +41,12 @@ The controller testbench completes one analog and one digital operation in
 eight busy cycles. A separate self-checking datapath test executes a 2x4 by
 4x2 signed INT8 multiplication, verifies all four INT32 outputs, and accounts
 for exactly 16 MACs in 16 compute cycles.
+
+The decode primitives mirror the reusable datapath in
+[HeteroDecode](https://github.com/WaffleBits/heterodecode): packed INT4 scoring,
+KV summary scoring, streaming top-k, and selected-value accumulation. CI
+compiles each primitive in addition to the existing behavioral matrix-engine
+test.
 
 `results/tiny_char_transformer_schedule.hex` is the 27-operation schedule
 generated from the checked-in ONNX transformer execution plan.
