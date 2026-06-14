@@ -1,5 +1,3 @@
-`timescale 1ns/1ps
-
 module attention_value_accumulator #(
     parameter integer TOKENS = 4,
     parameter integer DIM = 8,

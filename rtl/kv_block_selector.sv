@@ -1,5 +1,3 @@
-`timescale 1ns/1ps
-
 module kv_block_selector #(
     parameter integer DIM = 16,
     parameter integer NUM_BLOCKS = 8,

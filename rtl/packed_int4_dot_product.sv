@@ -1,5 +1,3 @@
-`timescale 1ns/1ps
-
 module packed_int4_dot_product #(
     parameter integer DIM = 16,
     parameter integer ACTIVATION_WIDTH = 8,

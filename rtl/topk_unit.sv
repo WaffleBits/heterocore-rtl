@@ -1,5 +1,3 @@
-`timescale 1ns/1ps
-
 module topk_unit #(
     parameter integer MAX_K = 4,
     parameter integer ID_WIDTH = 8,
