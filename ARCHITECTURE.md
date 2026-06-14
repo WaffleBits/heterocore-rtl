@@ -42,3 +42,8 @@ The initial verification fixture computes a 2x4 by 4x2 matrix product.
 The OpenLane configuration targets a 10 ns clock and includes only the
 controller top. No checked-in timing, power, area, or GDSII claim is made until
 the flow has run and its reports are published.
+
+The standalone decode path is intentionally not wired into the mixed-schedule
+controller yet. `packed_int4_dot_product`, `kv_block_selector`, `topk_unit`, and
+`attention_value_accumulator` are independently synthesizable blocks intended
+for the HeteroDecode FPGA selector demo and a later decode-specific ISA.
